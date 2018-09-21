@@ -1,0 +1,14 @@
+/* pages/item/item.wxss */
+.itemcontainer{
+  display: flex;
+}
+.itemimgs{
+  width: 100%;
+  height: 260px;
+  margin: 10px;
+  background-color: black;
+}
+.imgcontainer{
+  width: 100%;
+  height: 100%;
+}

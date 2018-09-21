@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "i-card": "/dist/iview/card/index",
+    "i-tab-bar": "/dist/iview/tab-bar/index",
+    "i-tab-bar-item": "/dist/iview/tab-bar-item/index",
+    "i-panel": "/dist/iview/panel/index",
+    "i-load-more": "/dist/iview/load-more/index",
+    "i-button": "/dist/iview/button/index",
+    "i-icon": "/dist/iview/icon/index",
+    "i-avatar": "/dist/iview/avatar/index",
+    "van-search": "/dist/vant/search/index"
+  }
+}

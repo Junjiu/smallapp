@@ -1,0 +1,41 @@
+<!--pages/home/home.wxml-->
+
+<i-tab-bar fixed current="{{ current }}" bindchange="handleChange">
+    <text></text>
+    <i-tab-bar-item key="0" icon="homepage" current-icon="homepage_fill" title="主页"></i-tab-bar-item>
+    <i-button style='z-index:99' bind:click="postclick" type="ghost" shape="circle" size='small' >
+    <i-icon type="add" size='30'/>
+    </i-button>
+    <i-tab-bar-item key="1" icon="mine" current-icon="mine_fill" dot title="我的"></i-tab-bar-item>
+    <text></text>
+</i-tab-bar>
+
+    <view class="shoppage" hidden="{{current != 0}}">
+          <view class="searchbar">
+              <van-search
+                value="{{ value }}"
+                placeholder="请输入搜索关键词"
+                use-action-slot
+                bind:search="onSearch"
+              >
+                <view slot="action" bind:tap="onSearch">搜索</view>
+              </van-search>
+          </view>
+          <view wx:for="{{items}}" wx:for-item="item" wx:key="index" bindtap="onTabsItemTap" data-index="{{index}}">
+            <view style="margin: 5px"></view>
+            <i-card title="{{item.title}}" extra="{{item.price}}" thumb="{{item.img}}">
+                <view slot="content">{{item.desc}}</view>
+            </i-card>
+          </view>
+          <i-load-more />
+    </view>
+
+    <view class="minepage" hidden="{{current != 1}}">
+    
+      <view class='userinfo'>
+        <open-data class="useravatar" type="userAvatarUrl"></open-data>
+        <open-data class="username" type="userNickName"></open-data>
+      </view>
+    </view>
+
+

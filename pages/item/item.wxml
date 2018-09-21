@@ -1,0 +1,15 @@
+<!--pages/item/item.wxml-->
+<view class="itemcontainer">
+<swiper class="itemimgs" indicator-dots circular interval="1000" duration="500">
+  <block wx:for="{{imgUrls}}" wx:key="index">
+    <swiper-item>
+      <image class="imgcontainer" src="{{item}}" />
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+    <view>
+      <text>title:{{title}}</text>
+      <text>descrption:{{desc}}</text>
+      <text>price:{{price}}</text>
+    </view>
