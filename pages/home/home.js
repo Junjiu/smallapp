@@ -17,7 +17,7 @@ Page({
       },
       {
         title: "good1",
-        desc: "你大爷",
+        desc: "你妹的",
         price: "2.00",
         img: "/asset/imgs/2.jpg"
       }, {
@@ -27,7 +27,7 @@ Page({
         img: "/asset/imgs/1.jpg"
       }, {
         title: "good1",
-        desc: "你大爷",
+        desc: "你妹的",
         price: "2.00",
         img: "/asset/imgs/2.jpg"
       }, {
@@ -37,7 +37,7 @@ Page({
         img: "/asset/imgs/2.jpg"
       }, {
         title: "good1",
-        desc: "你大爷",
+        desc: "你妹的",
         price: "2.00",
         img: "/asset/imgs/1.jpg"
       }, {
@@ -53,7 +53,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("onload");
     wx.setNavigationBarTitle({
       title: this.data.pagetitle
     })
@@ -113,8 +112,23 @@ Page({
   },
   onTabsItemTap(e){
     console.log(e);
+    var item = e.currentTarget.dataset.item; 
+    var title = e.currentTarget.dataset.item.title;
+    var desc = e.currentTarget.dataset.item.desc;
+    var price = e.currentTarget.dataset.item.price;
+    var img = e.currentTarget.dataset.item.img;
     wx.navigateTo({
-      url: '/pages/item/item',
+      //特殊符号可能需要转码
+      url: '/pages/item/item?detail='+ JSON.stringify(item),
+      success:function(res){
+
+      },
+      fail: function(){
+
+      },
+      complete:function(){
+
+      }
     })
   },
 

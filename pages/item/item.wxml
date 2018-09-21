@@ -8,8 +8,12 @@
   </block>
 </swiper>
 </view>
-    <view>
-      <text>title:{{title}}</text>
-      <text>descrption:{{desc}}</text>
-      <text>price:{{price}}</text>
-    </view>
+<view>
+  <text>title:{{title}}</text>
+</view>
+<view>
+  <text>descrption:{{desc}}</text>
+</view>
+<view>
+  <text>price:{{price}}</text>
+</view>

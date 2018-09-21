@@ -21,7 +21,7 @@
                 <view slot="action" bind:tap="onSearch">搜索</view>
               </van-search>
           </view>
-          <view wx:for="{{items}}" wx:for-item="item" wx:key="index" bindtap="onTabsItemTap" data-index="{{index}}">
+          <view wx:for="{{items}}" wx:for-item="item" wx:key="index" bindtap="onTabsItemTap" data-item="{{item}}">
             <view style="margin: 5px"></view>
             <i-card title="{{item.title}}" extra="{{item.price}}" thumb="{{item.img}}">
                 <view slot="content">{{item.desc}}</view>

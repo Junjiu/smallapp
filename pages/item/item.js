@@ -24,6 +24,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let detail = JSON.parse(options.detail);
+    this.setData({
+      title: detail.title,
+      desc:  detail.desc,
+      price: detail.price
+    });
 
   },
 
