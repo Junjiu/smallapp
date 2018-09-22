@@ -8,6 +8,7 @@ Page({
   data: {
     pagetitle: "主页",
     current: '0',
+    locationview: false,
     items: [
       {
         title: "good1",
@@ -106,7 +107,17 @@ Page({
   onShareAppMessage: function () {
 
   },
-
+  locationicon(){
+    console.log("location");
+    this.setData({
+      locationview: true
+    });
+  },
+  handleClose1() {
+    this.setData({
+      locationview: false
+    });
+  },
   onSearch(){
     console.log("onsearch");
   },

@@ -8,6 +8,9 @@
     "i-button": "/dist/iview/button/index",
     "i-icon": "/dist/iview/icon/index",
     "i-avatar": "/dist/iview/avatar/index",
+    "i-modal": "/dist/iview/modal/index",
+    "i-input": "/dist/iview/input/index",
+    "i-divider": "/dist/iview/divider/index",
     "van-search": "/dist/vant/search/index"
   }
 }

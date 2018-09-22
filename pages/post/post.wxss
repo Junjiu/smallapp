@@ -1,1 +1,8 @@
 /* pages/post/post.wxss */
+.weui-uploader{
+
+}
+.weui-uploader__bd{
+  width:265px;
+  margin:0 auto;
+}

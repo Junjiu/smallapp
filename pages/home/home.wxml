@@ -1,17 +1,30 @@
 <!--pages/home/home.wxml-->
 
-<i-tab-bar fixed current="{{ current }}" bindchange="handleChange">
+<i-tab-bar fixed current="{{ current }}" color="#80848f" bindchange="handleChange">
     <text></text>
     <i-tab-bar-item key="0" icon="homepage" current-icon="homepage_fill" title="主页"></i-tab-bar-item>
+     <text></text>
     <i-button style='z-index:99' bind:click="postclick" type="ghost" shape="circle" size='small' >
     <i-icon type="add" size='30'/>
-    </i-button>
+    </i-button> 
+    <text></text>
     <i-tab-bar-item key="1" icon="mine" current-icon="mine_fill" dot title="我的"></i-tab-bar-item>
     <text></text>
 </i-tab-bar>
 
     <view class="shoppage" hidden="{{current != 0}}">
           <view class="searchbar">
+              <view class='location_icon' bindtap='locationicon'>
+                <i-icon  type="coordinates_fill" size='30'/>
+                <!-- <view class="page__desc">定位</view> -->
+              </view>
+
+              <i-modal style="height:auto;" title="定位" visible="{{ locationview }}" bind:ok="handleClose1" bind:cancel="handleClose1">
+                  <i-input type="number" right title="ZipCode" mode="wrapped" placeholder="请输入区号" />
+                  <i-divider content="或"></i-divider>
+                  <i-input right title="Address" mode="wrapped" placeholder="请输入地址" />
+              </i-modal>
+
               <van-search
                 value="{{ value }}"
                 placeholder="请输入搜索关键词"

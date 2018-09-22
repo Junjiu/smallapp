@@ -14,7 +14,7 @@ create({
     placeholder: String,
     background: {
       type: String,
-      value: '#f2f2f2'
+      value: '#f8f8f9'
     },
     maxlength: {
       type: Number,

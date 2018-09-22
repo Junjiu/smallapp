@@ -1,8 +1,8 @@
 <view
   class="van-search custom-class {{ showAction || useActionSlot ? 'van-search--show-action' : '' }}"
-  style="background: {{ background }}"
+  style="background: {{ background }}; padding-left:0px;" 
 >
-  <view class="van-search__field">
+  <view class="van-search__field" >
     <van-field
       clearable
       type="search"
