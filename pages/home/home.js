@@ -9,44 +9,45 @@ Page({
     pagetitle: "主页",
     current: '0',
     locationview: false,
+    imgbaseurl: "http://47.88.51.97/image?id=",
     items: [
-      {
-        title: "good1",
-        desc: "你大爷",
-        price: "2.00",
-        img: "/asset/imgs/1.jpg"
-      },
-      {
-        title: "good1",
-        desc: "你妹的",
-        price: "2.00",
-        img: "/asset/imgs/2.jpg"
-      }, {
-        title: "good2",
-        desc: "你大爷",
-        price: "2.00",
-        img: "/asset/imgs/1.jpg"
-      }, {
-        title: "good1",
-        desc: "你妹的",
-        price: "2.00",
-        img: "/asset/imgs/2.jpg"
-      }, {
-        title: "good2",
-        desc: "你大爷",
-        price: "2.00",
-        img: "/asset/imgs/2.jpg"
-      }, {
-        title: "good1",
-        desc: "你妹的",
-        price: "2.00",
-        img: "/asset/imgs/1.jpg"
-      }, {
-        title: "good2",
-        desc: "你大爷",
-        price: "2.00",
-        img: "/asset/imgs/2.jpg"
-      }
+      // {
+      //   title: "good1",
+      //   desc: "你大爷",
+      //   price: "2.00",
+      //   img: "/asset/imgs/1.jpg"
+      // },
+      // {
+      //   title: "good1",
+      //   desc: "你妹的",
+      //   price: "2.00",
+      //   img: "/asset/imgs/2.jpg"
+      // }, {
+      //   title: "good2",
+      //   desc: "你大爷",
+      //   price: "2.00",
+      //   img: "/asset/imgs/1.jpg"
+      // }, {
+      //   title: "good1",
+      //   desc: "你妹的",
+      //   price: "2.00",
+      //   img: "/asset/imgs/2.jpg"
+      // }, {
+      //   title: "good2",
+      //   desc: "你大爷",
+      //   price: "2.00",
+      //   img: "/asset/imgs/2.jpg"
+      // }, {
+      //   title: "good1",
+      //   desc: "你妹的",
+      //   price: "2.00",
+      //   img: "/asset/imgs/1.jpg"
+      // }, {
+      //   title: "good2",
+      //   desc: "你大爷",
+      //   price: "2.00",
+      //   img: "/asset/imgs/2.jpg"
+      // }
     ]
   },
 
@@ -54,9 +55,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     wx.setNavigationBarTitle({
       title: this.data.pagetitle
+    });
+    wx.request({
+      url: 'http://47.88.51.97/items',
+      method: "GET",
+      success(res) {
+        console.log(res.data);
+        let items = that.data.items;
+        for(var i=0;i<res.data.length;i++){
+          var obj = {}
+          obj.id =res.data[i].id;
+          obj.title =res.data[i].title;
+          obj.desc = res.data[i].description;
+          obj.price = res.data[i].price;
+          obj.img = that.data.imgbaseurl+JSON.parse(res.data[i].image)[0].url;
+          items.push(obj);
+          that.setData({ items });
+        }
+        console.log(that.data.items);
+      },
+      fail(err){
+
+      },
+      complete(){
+
+      }
     })
+
   },
 
   /**
@@ -84,7 +112,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+   
   },
 
   /**

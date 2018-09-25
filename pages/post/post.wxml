@@ -1,27 +1,53 @@
+
+<view>
+    <i-input value="{{title}}" autofocus placeholder=" 标题*" />
+    <i-input i-class="itemdesc" value="{{desc}}" type="textarea" placeholder="描述您的宝贝~" maxlength="100" bind:blur	="desc_blur" />
+    <i-input value="$ {{price}}" type="number"  placeholder=" 价格*" />
+</view>
 <view class="page__bd">
-       <view class="weui-cells">
            <view class="weui-cell">
                <view class="weui-cell__bd">
+               
                    <view class="weui-uploader">
-                       <view class="weui-uploader__hd">
-                           <view class="weui-uploader__title">图片上传</view>
-                           <view class="weui-uploader__info">{{images.length}}/{{count}}</view>
+                   
+                       <view class="weui-uploader__hd">                
+                          <view class="weui-uploader__title"></view>
+                          <view class="weui-uploader__info">{{images.length}}/{{count}}</view>      
                        </view>
                        <view class="weui-uploader__bd" >
                            <view class="weui-uploader__files" id="uploaderFiles">
-                               <block wx:for="{{images}}" wx:key="*this" >
+                               <block wx:for="{{imgs}}" wx:key="index" >
                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
-                                       <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    <view class="imgcontainer">
+                                       <image class="weui-uploader__img" src="{{item.path}}" mode="aspectFill" />
+                                       <view class="delete-icon" 
+                                              catchtap="deleteImg" id="{{item.path}}"
+                                              data-index="{{index}}">
+                                          <i-icon type="delete_fill" size="20" color='red'/>
+                                       </view>
+                                       <view class="img_progress" hidden="{{item.percent == 100}}" >
+                                           <i-progress i-class="progress_bar"   percent="{{item.percent}}" status="normal" hide-info></i-progress>
+                                       </view>
+                                    </view>
                                    </view>
                                </block>
-                           </view>
+                           </view>              
                            <view class="weui-uploader__input-box" hidden="{{images.length==count}}">
                                <view class="weui-uploader__input"  bindtap="chooseImage"></view>
                            </view>
-                       </view>
-                   </view>
-               </view>
+                       </view>                  
+                   </view>                
+               </view>           
            </view>
-       </view>
-   </view>
-<button bindtap="uploadImg">确定上传图片</button>
+                  
+</view>
+
+<view class="progress-item">
+    <i-progress percent="{{ percent }}" status="normal" hide-info></i-progress>
+    <i-button bindclick="handleAdd" type="ghost">增加</i-button>
+</view>
+
+
+<view class="postbutton">
+<i-button bind:click="uploaditem" type="warning" shape="circle">确认发布</i-button>
+</view>

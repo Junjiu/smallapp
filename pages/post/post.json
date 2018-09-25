@@ -1,3 +1,12 @@
 {
-    "navigationBarTitleText": "发布"
+    "navigationBarTitleText": "发布",
+    "usingComponents": {
+      "i-input": "/dist/iview/input/index",
+      "i-panel": "/dist/iview/panel/index",
+      "i-input-number": "/dist/iview/input-number/index",
+      "i-button": "/dist/iview/button/index",
+      "i-icon": "/dist/iview/icon/index",
+      "i-progress": "/dist/iview/progress/index"
+    }
+    
 }

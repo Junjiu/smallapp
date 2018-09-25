@@ -1,8 +1,50 @@
 /* pages/post/post.wxss */
-.weui-uploader{
-
+page {
+   background-color: white;
 }
+.imgcontainer{
+  position: relative;
+}
+.delete-icon{
+  position: absolute;
+  z-index: 99;
+  top: -11px;
+  right: -9px;
+}
+.img_progress{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 0px;
+  z-index:98;
+  background-color: white;
+  opacity: 0.8;
+}
+.progress_bar{
+  top: 22px;
+}
+.weui-uploader__img{
+  position: relative
+}
+
 .weui-uploader__bd{
-  width:265px;
+  /* width:265px; */
+    width:265px;
   margin:0 auto;
+  overflow: visible;
+}
+
+.itemdesc textarea{
+  min-height:130px;
+  max-height: 13s0px;
+}
+.postbutton{
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+}
+.postbutton button{
+  background: #ff6d4a !important;
 }
